@@ -1160,15 +1160,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d47ab5b5daa58a4390e72d7ee377900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimerValue: 100
-  timerText: {fileID: 1320864090}
-  endGamePanel: {fileID: 491398057}
-  endText: {fileID: 760383214}
-  pinTexts:
+  _startTimerValue: 100
+  _timerText: {fileID: 1320864090}
+  _endGamePanel: {fileID: 491398057}
+  _endText: {fileID: 760383214}
+  _pinTexts:
   - {fileID: 348641937}
   - {fileID: 1163386029}
   - {fileID: 603970635}
-  pinStartValues: 010000000200000003000000
+  _pinStartValues: 010000000200000003000000
 --- !u!114 &1272401610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1214,12 +1214,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1272401608}
     m_Modifications:
+    - target: {fileID: 792007401439357025, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: m_Text
+      value: '-1|2|-1
+
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 1095748467452183422, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
       propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 1272401609}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _gameLogic
       value: 
       objectReference: {fileID: 1272401609}
     - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
@@ -1244,6 +1255,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
       propertyPath: pinChangings.Array.data[2]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _pinChangings.Array.data[0]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _pinChangings.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _pinChangings.Array.data[2]
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3716307662423851706, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
@@ -1511,12 +1534,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1272401608}
     m_Modifications:
+    - target: {fileID: 792007401439357025, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: m_Text
+      value: '-1|+1|+1
+
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 1095748467452183422, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
       propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 1272401609}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _gameLogic
       value: 
       objectReference: {fileID: 1272401609}
     - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
@@ -1541,6 +1575,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
       propertyPath: pinChangings.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _pinChangings.Array.data[0]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _pinChangings.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _pinChangings.Array.data[2]
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3716307662423851706, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
@@ -1864,6 +1910,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1272401609}
     - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _gameLogic
+      value: 
+      objectReference: {fileID: 1272401609}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
       propertyPath: pin1Changing
       value: 1
       objectReference: {fileID: 0}
@@ -1877,6 +1927,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
       propertyPath: pinChangings.Array.data[1]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _pinChangings.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812108986137076084, guid: ce41737022050ae44878e09d55ab48b6, type: 3}
+      propertyPath: _pinChangings.Array.data[1]
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3716307662423851706, guid: ce41737022050ae44878e09d55ab48b6, type: 3}

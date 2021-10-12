@@ -1,51 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour
-{
-    [SerializeField] private int startTimerValue;
-    [SerializeField] private Text timerText;
-    [SerializeField] private GameObject endGamePanel;
-    [SerializeField] private Text endText;
-    [SerializeField] private Text[] pinTexts = new Text[3];
-    [SerializeField] private int[] pinStartValues = new int[3];
+{    private const int _minPinValue = 0;
+     private const int _maxPinValue = 10;
+     
+    [SerializeField] private int _startTimerValue;
+    [SerializeField] private Text _timerText;
+    [SerializeField] private GameObject _endGamePanel;
+    [SerializeField] private Text _endText;
+    [SerializeField] private Text[] _pinTexts = new Text[3];
+    [SerializeField] private int[] _pinStartValues = new int[3];
     private int[] _pinValues = new int[3];
     private float _startTime;
     private bool _gameOn;
-    // Start is called before the first frame update
-    
-    public void ChangePinStates(int[] changes)
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            int newPinValue = _pinValues[i] + changes[i];
-            if (newPinValue < 0)
-            {
-                newPinValue = 0;
-            }
-            else if (newPinValue > 10)
-            {
-                newPinValue = 10;
-            }
 
-            _pinValues[i] = newPinValue;
-        }
-        UpdatePins();
-        CheckWinCombination();
-    }
-    public void OnRestart()
-    {
-        endGamePanel.SetActive(false);
-        StartGame();
-    }
-    void Start()
+    private void Start()
     {
         StartGame();
     }
 
-    void Update()
+    private void Update()
     {
         if (!_gameOn)
         {
@@ -53,23 +31,40 @@ public class GameLogic : MonoBehaviour
         }
 
         float deltaTime = Time.time - _startTime;
-        float timeLeft = startTimerValue - Mathf.Round(deltaTime);
-        timerText.text = "Time left: " + (timeLeft).ToString();
+        float timeLeft = _startTimerValue - Mathf.Round(deltaTime);
+        _timerText.text = "Time left: " + timeLeft;
         if (timeLeft <= 0)
         {
             OnPlayerLoose();
         }
     }
-
-    void UpdatePins()
+    
+    public void ChangePinStates(int[] changes)
     {
-        for (int i = 0; i < 3; i++)
+        for (var i = 0; i < 3; i++)
         {
-            pinTexts[i].text = _pinValues[i].ToString();
+            int newPinValue = _pinValues[i] + changes[i];
+            _pinValues[i] = Mathf.Clamp(newPinValue, _minPinValue, _maxPinValue);
+        }
+        UpdatePins();
+        CheckWinCombination();
+    }
+    
+    public void OnRestart()
+    {
+        _endGamePanel.SetActive(false);
+        StartGame();
+    }
+
+    private void UpdatePins()
+    {
+        for (var i = 0; i < 3; i++)
+        {
+            _pinTexts[i].text = _pinValues[i].ToString();
         }
     }
     
-    void CheckWinCombination()
+    private void CheckWinCombination()
     {
         foreach (var pinValue in _pinValues)
         {
@@ -81,37 +76,30 @@ public class GameLogic : MonoBehaviour
         OnPlayerWin();
     }
 
-    void OnPlayerWin()
+    private void OnPlayerWin()
     {
         ShowEndGamePanel(true);
     }
     
-    void OnPlayerLoose()
+    private void OnPlayerLoose()
     {
         ShowEndGamePanel(false);
     }
 
-    void ShowEndGamePanel(bool win)
+    private void ShowEndGamePanel(bool win)
     {
-        if (win)
-        {
-            endText.text = "You win!";
-        }
-        else
-        {
-            endText.text = "You loose!";
-        }
+        _endText.text = win ? "You win!" : "You loose!";
 
-        endGamePanel.SetActive(true);
+        _endGamePanel.SetActive(true);
         _gameOn = false;
     }
 
     private void StartGame()
     {
-        timerText.text = startTimerValue.ToString();
-        for (int i = 0; i < 3; i++)
+        _timerText.text = _startTimerValue.ToString();
+        for (var i = 0; i < 3; i++)
         {
-            _pinValues[i] = pinStartValues[i];
+            _pinValues[i] = _pinStartValues[i];
         }
         UpdatePins();
         _startTime = Time.time;

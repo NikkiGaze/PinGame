@@ -221,9 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebba97aa11037a44a1c960eb838e237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 792007401439357025}
-  gameLogic: {fileID: 0}
-  pinChangings: 000000000000000000000000
+  _text: {fileID: 792007401439357025}
+  _gameLogic: {fileID: 0}
+  _pinChangings: 000000000000000000000000
 --- !u!1 &6037195535600173444
 GameObject:
   m_ObjectHideFlags: 0
